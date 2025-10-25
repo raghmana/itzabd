@@ -1,0 +1,83 @@
+.experience {
+  &__timeline {
+    position: relative;
+    padding-left: 2rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--vscode-blue);
+    }
+  }
+  
+  &__item {
+    position: relative;
+    margin-bottom: 3rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--vscode-light-blue);
+      border: 2px solid var(--vscode-bg);
+    }
+    
+    &-header {
+      margin-bottom: 1rem;
+      
+      h3 {
+        color: var(--vscode-yellow);
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .company {
+        color: var(--vscode-green);
+        font-size: 1.1rem;
+      }
+      
+      .period {
+        color: var(--vscode-purple);
+        font-size: 0.9rem;
+      }
+    }
+    
+    &-content {
+      ul {
+        list-style: none;
+        
+        li {
+          margin-bottom: 0.5rem;
+          
+          &::before {
+            content: '•';
+            color: var(--vscode-orange);
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    &__timeline {
+      padding-left: 1.5rem;
+    }
+    
+    &__item {
+      &::before {
+        left: -1.5rem;
+      }
+    }
+  }
+}

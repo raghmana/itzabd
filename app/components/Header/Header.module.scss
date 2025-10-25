@@ -1,0 +1,40 @@
+.header {
+  padding: 2rem 0;
+  
+  &__name {
+    font-size: 2.5rem;
+    color: var(--vscode-light-blue);
+    margin-bottom: 0.5rem;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    color: var(--vscode-yellow);
+    margin-bottom: 1rem;
+  }
+  
+  &__contact {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    
+    a {
+      color: var(--vscode-fg);
+      text-decoration: none;
+      transition: color 0.3s;
+      
+      &:hover {
+        color: var(--vscode-light-blue);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__contact {
+      gap: 1rem;
+      flex-direction: column;
+    }
+  }
+}
