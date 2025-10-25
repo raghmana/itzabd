@@ -1,0 +1,72 @@
+/* Color variables: include original VS Code dark tokens and project accents */
+:root {
+  /* Original VS Code dark tokens (restore previous background) */
+  --vscode-bg: #09122C;
+  --vscode-fg: #d4d4d4;
+  --vscode-blue: #007acc;
+  --vscode-light-blue: #0098ff;
+  --vscode-green: #6A9955;
+  --vscode-orange: #CE9178;
+  --vscode-yellow: #DCDCAA;
+  --vscode-purple: #C586C0;
+  --vscode-red: #F44747;
+
+  /* Project accents (kept from your requested palette) */
+  --accent: #F7A5A5; /* pink */
+  --secondary: #FFDBB6; /* soft yellow */
+
+  /* Semantic variables used across components */
+  --background: var(--vscode-bg); /* RESTORED: use VS Code dark background */
+  --text-primary: var(--vscode-fg);
+  --text-light: #ffffff;
+  --card-bg: #0f1720; /* slightly lighter card on dark bg for contrast */
+
+  --font-mono: 'Consolas', 'Courier New', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Utility classes
+.section {
+  padding: 4rem 0;
+
+  &-title {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 0.5rem;
+  }
+
+  &-subtitle {
+    color: rgba(212,212,212,0.85);
+  }
+}
+
+// Media queries
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+}
