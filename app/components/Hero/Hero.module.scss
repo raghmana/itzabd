@@ -6,6 +6,67 @@
   overflow: hidden;
   background-color: var(--background);
   
+  &__shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  &__triangle,
+  &__square,
+  &__circle,
+  &__rectangle {
+    position: absolute;
+    opacity: 0.15;
+    border: 2px solid var(--accent);
+  }
+
+  &__triangle {
+    width: 0;
+    height: 0;
+    border: none;
+    background: transparent;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 180px solid var(--accent);
+    top: 10%;
+    left: 10%;
+    transform: rotate(-15deg);
+    animation: rotateShape 20s linear infinite;
+  }
+
+  &__square {
+    width: 120px;
+    height: 120px;
+    border-color: var(--primary);
+    top: 60%;
+    left: 5%;
+    transform: rotate(45deg);
+    animation: floatShape 15s ease-in-out infinite;
+  }
+
+  &__circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-color: var(--secondary);
+    top: 20%;
+    right: 15%;
+    animation: floatShape 18s ease-in-out infinite reverse;
+  }
+
+  &__rectangle {
+    width: 180px;
+    height: 100px;
+    border-color: var(--accent);
+    bottom: 15%;
+    right: 10%;
+    transform: rotate(-30deg);
+    animation: rotateShape 25s linear infinite reverse;
+  }
+  
   &::before {
     content: '';
     position: absolute;
@@ -57,9 +118,48 @@
   &__cta {
     display: flex;
     gap: 1rem;
+    margin-bottom: 2.5rem;
     
     a {
         color: var(--accent);
+    }
+  }
+
+  &__tech {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    &_group {
+      h3 {
+        font-size: 1rem;
+        color: var(--text-light);
+        opacity: 0.6;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+
+    &_icons {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: var(--text-light);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: var(--accent);
+          opacity: 1;
+          transform: translateY(-3px);
+        }
+      }
     }
   }
 
@@ -96,10 +196,49 @@
         font-size: 1.2rem;
       }
     }
+
+    &__tech {
+        gap: 1.5rem;
+      
+        &_group {
+          h3 {
+            font-size: 0.875rem;
+            text-align: center;
+          }
+        }
+
+        &_icons {
+          gap: 1rem;
+          justify-content: center;
+        
+          svg {
+            width: 1.75rem;
+            height: 1.75rem;
+          }
+        }
+    }
   }
 }
 
 @keyframes patternMove {
   0% { background-position: 0 0; }
   100% { background-position: 30px 30px; }
+}
+
+@keyframes floatShape {
+  0%, 100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(45deg);
+  }
+}
+
+@keyframes rotateShape {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
